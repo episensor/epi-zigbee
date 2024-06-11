@@ -32,7 +32,7 @@ $ snap set system experimental.hotplug=true
 $ systemctl restart snapd.service
 $ snap interface serial-port
 # Connect the serial-port plug in the epi-zibbee2mqtt to whatever the hotplugged slot name is
-# Exampel here for the Sonoff Zigbee Dongle
+# Example here for the Sonoff Zigbee Dongle
 $ snap connect epi-zigbee2mqtt:serial-port snapd:sonoffzigbee30usbdo
 ```
 
