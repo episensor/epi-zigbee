@@ -20,7 +20,7 @@ The snap version consists of the zigbee2mqtt release tag and an additional ascen
 Make sure you have snapd installed on your system. See [Installing snapd](https://snapcraft.io/docs/installing-snapd) for a list of distributions with and without snap pre-installed, including installation instructions for those that have not.
 
 ```bash
-$ snap install janlochi-zigbee2mqtt
+$ snap install epi-zigbee2mqtt
 ```
 
 ### Setup
@@ -30,16 +30,14 @@ It's required to manually connect the serial port to the snap and enable the exp
 ```bash
 $ snap set system experimental.hotplug=true
 $ systemctl restart snapd.service
-$ # one of the following commands
-$ snap connect janlochi-zigbee2mqtt:serial-port core:usb20-serial 
-$ snap connect janlochi-zigbee2mqtt:serial-port snapd:usb20-serial
-$ snap connect janlochi-zigbee2mqtt:serial-port snapd:usbserial
+$ snap interface serial-port
+# Connect the serial-port plug in the epi-zibbee2mqtt to whatever the hotplugged slot name is
+# Example here for the Sonoff Zigbee Dongle
+$ snap connect epi-zigbee2mqtt:serial-port snapd:sonoffzigbee30usbdo
 ```
 
 ### Configuration
 
-The `configuration.yaml` is located in `/var/snap/janlochi-zigbee2mqtt/current` and initially populated with a default configuration suitable for the snap.
-
-Consider using `/dev/serial/by-id/....` instead of `/dev/ttyUSB0`.
+The `configuration.yaml` is located in `/var/snap/epi-zigbee2mqtt/current` and initially populated with a default configuration suitable for the snap.
 
 Use `snap restart janlochi-zigbee2mqtt` after editing the yaml file.

@@ -4,6 +4,9 @@ homeassistant: false
 # allow new devices to join
 permit_join: true
 
+# enable the web i/f on port 8080
+frontend: true
+
 # MQTT settings
 mqtt:
   # MQTT base topic for zigbee2mqtt MQTT messages
@@ -16,11 +19,21 @@ mqtt:
 
 # Serial settings
 serial:
-  # Location of CC2531 USB sniffer
+  # Setting for Sonoff Zigbee 3.0 USB Dongle
   port: /dev/ttyACM0
+  adapter: ember
+  rtscts: true
 
 # Optional: advanced settings
 advanced:
-  # Loggin is handled by snap, do not log to file by default
+  # For inital work set log level to debug
+  log_level: debug
+  # Logging is handled by snap, do not log to file by default
   log_output:
     - console
+  homeassistant_legacy_entity_attributes: false
+  legacy_api: false
+  legacy_availability_payload: false
+
+device_options:
+  legacy: false
