@@ -1,4 +1,4 @@
-name: epi-zigbee2mqtt
+name: epi-zigbee
 summary: EpiSensor Zigbee to MQTT bridge, get rid of your proprietary Zigbee bridges
 description: |
   Allows you to use your Zigbee devices without the vendors bridge or gateway.
