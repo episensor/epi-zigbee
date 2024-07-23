@@ -42,6 +42,7 @@ parts:
       Z2M_GIT_TAG="$(git describe --tags --abbrev=0)"
       echo Git tag of zigbee2mqtt is ${Z2M_GIT_TAG}
       echo "export Z2M_GIT_TAG=${Z2M_GIT_TAG}" > /tmp/z2m-git-tag
+      cp $SNAPCRAFT_PROJECT_DIR/data/episensor.js data
     python-packages: [pip, setuptools, wheel, nodeenv]
     build-packages:
       - gcc
